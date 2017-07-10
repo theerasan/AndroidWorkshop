@@ -51,6 +51,8 @@ class LoginActivity : AppCompatActivity() {
     private fun performLogin() {
         val stringToShow  = emailField?.text.toString() + " " + passwordField?.text.toString()
         Toast.makeText(this, stringToShow, Toast.LENGTH_LONG).show()
+        emailField?.setText("")
+        passwordField?.setText("")
     }
 
     private fun checkIsReadyToSignIn() {

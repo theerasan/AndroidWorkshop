@@ -8,6 +8,8 @@ class LoginArchPresenter(var viewModel: LoginArchViewModel?, var view: LoginArch
         viewModel?.readyToLogin?.set(false)
         viewModel?.onClickLogin?.set(View.OnClickListener { _ ->
             view.performLogin(viewModel?.email?.get() + " " + viewModel?.password?.get())
+            viewModel?.email?.set("")
+            viewModel?.password?.set("")
         })
     }
 

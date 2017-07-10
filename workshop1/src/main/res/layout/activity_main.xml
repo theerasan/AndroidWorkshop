@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ta.com.workshop1.feature._0_main.MainActivity">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="ta.com.workshop1.feature._0_main.MainViewModel"/>
+    </data>
+    <LinearLayout android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v4.widget.NestedScrollView
+            android:padding="@dimen/medium_gap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:padding="@dimen/medium_gap"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:text="@string/old_school_android"
+                    android:layout_marginBottom="@dimen/medium_gap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{viewModel.oldSchoolAndroidOnClick}"/>
+
+                <Button
+                    android:text="@string/data_binding"
+                    android:layout_marginBottom="@dimen/medium_gap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{viewModel.dataBindingAndroidOnClick}"/>
+
+                <Button
+                    android:text="@string/with_android_arch"
+                    android:layout_marginBottom="@dimen/medium_gap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{viewModel.archOnClick}"/>
+
+                <Button
+                    android:text="@string/with_android_arch_2_ways_binding"
+                    android:layout_marginBottom="@dimen/medium_gap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{viewModel.arch2WaysBindingOnClick}"/>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

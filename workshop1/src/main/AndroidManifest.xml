@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ta.com.workshop1.feature">
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="._0_main.MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:parentActivityName="._0_main.MainActivity"
+            android:name="._1_oldschoolandroid.LoginActivity"
+            android:label="@string/old_school_android"/>
+        <activity
+            android:parentActivityName="._0_main.MainActivity"
+            android:name="._2_databinding.LoginWithBindingActivity"
+            android:label="@string/data_binding"/>
+        <activity
+            android:parentActivityName="._0_main.MainActivity"
+            android:name="._3_android_arch.LoginArchActivity"
+            android:label="@string/with_android_arch"/>
+        <activity
+            android:parentActivityName="._0_main.MainActivity"
+            android:name="._4_android_arch_2_ways_binding.LoginArch2WaysBindingActivity"
+            android:label="@string/with_android_arch_2_ways_binding"/>
+    </application>
+
+</manifest>

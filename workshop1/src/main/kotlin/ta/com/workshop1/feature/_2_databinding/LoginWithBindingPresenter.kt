@@ -6,6 +6,8 @@ class LoginWithBindingPresenter(var viewModel: LoginDataBindingViewModel?, var v
     override fun onInit() {
         viewModel?.onClickLogin = View.OnClickListener { _ ->
             view.performLogin(viewModel?.email + " " + viewModel?.password)
+            viewModel?.email = ""
+            viewModel?.password = ""
         }
     }
 }

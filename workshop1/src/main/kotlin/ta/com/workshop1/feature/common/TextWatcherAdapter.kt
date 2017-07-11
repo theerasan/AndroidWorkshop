@@ -23,9 +23,13 @@ class TextWatcherAdapter(private var field: KMutableProperty0<ObservableField<St
     }
 
     override fun afterTextChanged(s: Editable) {
-        if (field.get()?.get()  != s.toString()) {
+        setText(s.toString())
+    }
+
+    private fun setText(s: String) {
+        if (field.get()?.get()  != s) {
             isInEditMode = true
-            value.set(s.toString())
+            value.set(s)
             field.set(value)
             isInEditMode = false
         }

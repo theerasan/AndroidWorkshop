@@ -40,22 +40,44 @@ class LoginArchActivity : AppCompatActivity(), LoginArchInf.ViewInf {
     }
 
     private fun initEvent() {
-        val textWatcher = object: TextWatcher {
+        val emailWatcher = object: TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-
             }
 
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
+            override fun beforeTextChanged(s: CharSequence?,
+                                           start: Int,
+                                           count: Int,
+                                           after: Int) {
             }
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                checkIsReadyToSignIn()
+            override fun onTextChanged(s: CharSequence?,
+                                       start: Int,
+                                       before: Int,
+                                       count: Int) {
+                presenter?.onEmailUpdate(s.toString())
             }
         }
 
-        binding?.email?.addTextChangedListener(textWatcher)
-        binding?.password?.addTextChangedListener(textWatcher)
+        val passwordWatcher = object: TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?,
+                                           start: Int,
+                                           count: Int,
+                                           after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?,
+                                       start: Int,
+                                       before: Int,
+                                       count: Int) {
+                presenter?.onPasswordUpdate(s.toString())
+            }
+        }
+
+        binding?.email?.addTextChangedListener(emailWatcher)
+        binding?.password?.addTextChangedListener(passwordWatcher)
     }
 
     override fun performLogin(stringToShow: String) {

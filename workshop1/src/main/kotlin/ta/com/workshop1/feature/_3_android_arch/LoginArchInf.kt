@@ -8,5 +8,7 @@ interface LoginArchInf {
     interface PresenterInf {
         fun onInit()
         fun setReadyToClick(isReady: Boolean)
+        fun onEmailUpdate(string: String)
+        fun onPasswordUpdate(string: String)
     }
 }

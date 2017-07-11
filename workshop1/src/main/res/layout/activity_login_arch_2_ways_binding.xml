@@ -38,7 +38,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/prompt_email"
                         android:inputType="textEmailAddress"
-                        android:text="@{viewModel.email}"
+                        android:text="@={viewModel.email}"
                         android:addTextChangedListener="@{viewModel.emailOnChange}"
                         android:maxLines="1" />
 

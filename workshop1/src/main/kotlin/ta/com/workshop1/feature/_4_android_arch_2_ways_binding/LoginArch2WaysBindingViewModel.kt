@@ -8,22 +8,20 @@ import ta.com.workshop1.feature.common.TextWatcherAdapter
 
 class LoginArch2WaysBindingViewModel : ViewModel() {
     var email: ObservableField<String>? = ObservableField("")
-        set(newStr) {
-            email?.set(newStr?.get())
-            readyToLogin?.set(isCanLogin())
-        }
 
     var password: ObservableField<String>? = ObservableField("")
-        set(newStr) {
-            password?.set(newStr?.get())
-            readyToLogin?.set(isCanLogin())
-        }
 
-    var emailOnChange = TextWatcherAdapter(this::email)
-    var passwordOnChange = TextWatcherAdapter(this::password)
+    var emailOnChange = TextWatcherAdapter({s ->
+        this.email!!.set(s)
+        readyToLogin?.set(isCanLogin())
+    })
+    var passwordOnChange = TextWatcherAdapter({s ->
+        this.password!!.set(s)
+        readyToLogin?.set(isCanLogin())
+    })
 
     var onClickLogin: ObservableField<View.OnClickListener>? = ObservableField()
-    var readyToLogin: ObservableField<Boolean>? = ObservableField(false)
+    var readyToLogin: ObservableField<Boolean>? = ObservableField(isCanLogin())
 
     private fun isCanLogin(): Boolean {
         return TextHelper.isNotEmptyStrings(password?.get(), email?.get())

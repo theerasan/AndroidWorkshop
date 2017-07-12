@@ -9,8 +9,8 @@ class LoginArch2WaysBindingPresenter(var viewModel: LoginArch2WaysBindingViewMod
         viewModel?.readyToLogin?.set(false)
         viewModel?.onClickLogin?.set(View.OnClickListener { _ ->
             view.performLogin(viewModel?.email?.get() + " " + viewModel?.password?.get())
-            viewModel!!.email = ObservableField("")
-            viewModel!!.password = ObservableField("")
+            viewModel!!.email!!.set("")
+            viewModel!!.password!!.set("")
         })
     }
 }

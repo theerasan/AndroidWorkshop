@@ -84,11 +84,4 @@ class LoginArchActivity : AppCompatActivity(), LoginArchInf.ViewInf {
         Toast.makeText(this, stringToShow, Toast.LENGTH_LONG).show()
     }
 
-    private fun checkIsReadyToSignIn() {
-        val notEmptyStrings = TextHelper.isNotEmptyStrings(binding?.email?.text.toString(), binding?.password?.text.toString())
-        viewModel?.email?.set(binding?.email?.text.toString())
-        viewModel?.password?.set(binding?.password?.text.toString())
-        presenter?.setReadyToClick(notEmptyStrings)
-    }
 }
-

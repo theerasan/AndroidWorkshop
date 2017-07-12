@@ -3,14 +3,12 @@ package ta.com.workshop1.feature.common
 import android.text.Editable
 import android.databinding.ObservableField
 import android.text.TextWatcher
-import kotlin.reflect.KMutableProperty0
 
 
-class TextWatcherAdapter(private var field: KMutableProperty0<ObservableField<String>?>) : TextWatcher {
-
-    val value = ObservableField<String>()
+class TextWatcherAdapter(private var field: (String) -> Unit) : TextWatcher {
 
     private var isInEditMode = false
+    var tmp = ""
 
     init {
 
@@ -23,10 +21,14 @@ class TextWatcherAdapter(private var field: KMutableProperty0<ObservableField<St
     }
 
     override fun afterTextChanged(s: Editable) {
-        if (field.get()?.get()  != s.toString()) {
+        setText(s.toString())
+    }
+
+    private fun setText(s: String) {
+        if (tmp != s) {
             isInEditMode = true
-            value.set(s.toString())
-            field.set(value)
+            field.invoke(s)
+            tmp = s
             isInEditMode = false
         }
     }

@@ -1,1 +1,1 @@
-include ':workshop1'
+include ':workshop1', ':workshop2'

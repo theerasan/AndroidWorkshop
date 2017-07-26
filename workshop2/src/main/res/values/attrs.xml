@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="imageRatio" format="enum">
+        <enum name="square" value="0" />
+        <enum name="W2L1" value="1" />
+    </attr>
+    <attr name="imageOrientation" format="enum">
+        <enum name="landscape" value="0"/>
+        <enum name="portrait" value="1"/>
+    </attr>
+
+    <declare-styleable name="ImageRatioView">
+        <attr name="imageRatio" />
+        <attr name="imageOrientation" />
+    </declare-styleable>
+</resources>

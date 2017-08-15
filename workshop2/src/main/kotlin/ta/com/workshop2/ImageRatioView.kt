@@ -2,10 +2,10 @@ package ta.com.workshop2
 
 import android.content.Context
 import android.support.annotation.Nullable
+import android.support.v7.widget.AppCompatImageView
 import android.util.AttributeSet
-import android.widget.ImageView
 
-class ImageRatioView : ImageView {
+class ImageRatioView : AppCompatImageView {
 
     var imageOrientation: Int? = 0
     var imageRatio: Int? = 0
@@ -20,17 +20,13 @@ class ImageRatioView : ImageView {
 
     constructor(context: Context, @Nullable attrs: AttributeSet) : this(context, attrs, 0)
 
-    constructor(context: Context, @Nullable attrs: AttributeSet, defStyleAttr: Int) : this(context, attrs, defStyleAttr, 0)
+    constructor(context: Context, @Nullable attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        var typedArray = context.obtainStyledAttributes(attrs, R.styleable.ImageRatioView)
+        imageOrientation = typedArray.getInt(R.styleable.ImageRatioView_imageOrientation, 0)
+        imageRatio = typedArray.getInt(R.styleable.ImageRatioView_imageRatio, 0)
 
-    constructor(context: Context, @Nullable attrs: AttributeSet, defStyleAttr: Int,
-                defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes) {
-        val attr = context.obtainStyledAttributes(attrs, R.styleable.ImageRatioView, defStyleAttr, defStyleRes)
-        imageOrientation = attr.getInt(R.styleable.ImageRatioView_imageOrientation, 0)
-        imageRatio = attr.getInt(R.styleable.ImageRatioView_imageRatio, 0)
-
-        attr.recycle()
+        typedArray.recycle()
     }
-
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
 

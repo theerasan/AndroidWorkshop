@@ -13,6 +13,7 @@
         android:layout_height="match_parent">
 
         <ta.com.workshop2.ImageRatioView
+            android:id="@+id/banner"
             android:src="@drawable/meet"
             android:background="@color/colorAccent"
             android:layout_width="match_parent"
@@ -36,6 +37,16 @@
             android:src="@drawable/meet"
             android:background="@color/colorAccent"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            app:imageOrientation="landscape"
+            app:imageRatio="square" />
+
+        <ta.com.workshop2.ImageRatioView
+            android:layout_marginTop="15dp"
+            android:src="@drawable/meet"
+            android:background="@color/colorAccent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
             app:imageOrientation="landscape"

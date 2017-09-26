@@ -6,7 +6,6 @@ import android.support.v7.widget.AppCompatImageView
 import android.util.AttributeSet
 
 class ImageRatioView : AppCompatImageView {
-
     var imageOrientation: Int? = 0
     var imageRatio: Int? = 0
     val LANDSCAPE  = 0
@@ -20,8 +19,9 @@ class ImageRatioView : AppCompatImageView {
 
     constructor(context: Context, @Nullable attrs: AttributeSet) : this(context, attrs, 0)
 
-    constructor(context: Context, @Nullable attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        var typedArray = context.obtainStyledAttributes(attrs, R.styleable.ImageRatioView)
+    constructor(context: Context, @Nullable attrs: AttributeSet, defStyleAttr: Int)
+            : super(context, attrs, defStyleAttr) {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ImageRatioView)
         imageOrientation = typedArray.getInt(R.styleable.ImageRatioView_imageOrientation, 0)
         imageRatio = typedArray.getInt(R.styleable.ImageRatioView_imageRatio, 0)
 
@@ -29,7 +29,6 @@ class ImageRatioView : AppCompatImageView {
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-
         var width =  MeasureSpec.getSize(widthMeasureSpec)
         var height = MeasureSpec.getSize(heightMeasureSpec)
 
@@ -52,13 +51,11 @@ class ImageRatioView : AppCompatImageView {
     }
 
 
-    private fun calculateRatio(measureSpec: Int) : Int {
-        return when (imageRatio) {
-            SQUARE -> measureSpec
-            RATIO_2_1 -> (measureSpec * RATIO_2_1_DIVISION).toInt()
-            else -> {
-                0
-            }
+    private fun calculateRatio(measureSpec: Int) : Int = when (imageRatio) {
+        SQUARE -> measureSpec
+        RATIO_2_1 -> (measureSpec * RATIO_2_1_DIVISION).toInt()
+        else -> {
+            0
         }
     }
 }

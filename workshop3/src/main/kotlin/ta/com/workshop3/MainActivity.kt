@@ -24,12 +24,6 @@ class MainActivity : AppCompatActivity() {
     private fun initCardViewWithNormalWay() {
         val cardView = findViewById(R.id.card_view) as CardView
 
-        cardView.setOnClickListener({ view ->
-            Handler().postDelayed({
-                Toast.makeText(this, "Clicked " + view.id, Toast.LENGTH_SHORT).show()
-            }, 370)
-        })
-
         cardView.setOnTouchListener { v, event ->
             Log.d("ANIMATE", event.toString())
             when (event.action) {
@@ -88,6 +82,12 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+
+        cardView.setOnClickListener({ view ->
+            Handler().postDelayed({
+                Toast.makeText(this, "Clicked " + view.id, Toast.LENGTH_SHORT).show()
+            }, 370)
+        })
     }
 
     private fun initCardViewWithKotlinExtensionWay() {

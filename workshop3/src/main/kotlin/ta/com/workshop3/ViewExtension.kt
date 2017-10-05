@@ -20,9 +20,9 @@ fun View.setOnAnimateClickListener(resId: Int?, onClick: (View) -> Unit) {
         secondaryView = this.findViewById(resId)
     }
 
-    this.setOnClickListener({ _ ->
+    this.setOnClickListener({ view ->
         Handler().postDelayed({
-            onClick.invoke(this)
+            onClick.invoke(view)
         }, 370)
     })
 

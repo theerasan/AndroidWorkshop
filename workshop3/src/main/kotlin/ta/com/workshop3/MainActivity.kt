@@ -3,6 +3,7 @@ package ta.com.workshop3
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.CardView
 import android.util.Log
@@ -14,10 +15,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        initCardViewWithNormalWay()
+        initCardViewWithKotlinExtensionWay()
+        initApplyButton()
+    }
+
+    private fun initCardViewWithNormalWay() {
         val cardView = findViewById(R.id.card_view) as CardView
 
-        cardView.setOnClickListener({ _ ->
-            Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show()
+        cardView.setOnClickListener({ view ->
+            Handler().postDelayed({
+                Toast.makeText(this, "Clicked " + view.id, Toast.LENGTH_SHORT).show()
+            }, 370)
         })
 
         cardView.setOnTouchListener { v, event ->
@@ -77,8 +87,22 @@ class MainActivity : AppCompatActivity() {
                 else -> true
             }
 
-
-
         }
     }
+
+    private fun initCardViewWithKotlinExtensionWay() {
+        val cardView2 = findViewById(R.id.card_view2) as CardView
+
+        cardView2.setOnAnimateClickListener(R.id.imageBackground2, { view ->
+            Toast.makeText(this, "Clicked " + view.id , Toast.LENGTH_SHORT).show()
+        })
+    }
+
+    private fun initApplyButton() {
+        val applyButton = findViewById(R.id.applyButton)
+        applyButton.setOnAnimateClickListener({view ->
+            Toast.makeText(this, "Clicked Apply " + view.id , Toast.LENGTH_SHORT).show()
+        })
+    }
 }
+

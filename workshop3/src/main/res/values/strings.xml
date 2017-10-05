@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Workshop3</string>
+    <string name="apply_for_job">Apply for job?</string>
+    <string name="happy">happy</string>
+    <string name="coding_with">coding with</string>
+    <string name="eatigo">eatigo</string>
+    <string name="we_looking_for_godhand_developer_both_android_and_ios">we looking for godhand developer, both Android and iOS</string>
+    <string name="detail">detail</string>
 </resources>
